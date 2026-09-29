@@ -1,0 +1,138 @@
+{
+  "version": "2.0",
+  "description": "IBVAP Phase 2 Local CCTV Video Ingestion & Replay Camera Roster",
+  "cameras": [
+    {
+      "id": "CAM-01",
+      "name": "North Gate — Main Entry View",
+      "description": "High-definition optical sensor covering northern vehicle & pedestrian gate checkpoint",
+      "sourceReference": "/api/cameras/CAM-01/video",
+      "status": "active",
+      "capabilities": ["optical", "ir", "day_night_switch"],
+      "coverage": {
+        "sector": "Sector-North Alpha",
+        "latitude": 32.7157,
+        "longitude": -117.1611,
+        "azimuth": 355.0,
+        "fovDegrees": 85.0,
+        "blindSpotZones": ["guard_tower_shadow"]
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 30.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.98
+      }
+    },
+    {
+      "id": "CAM-02",
+      "name": "North Corridor — Approach Line",
+      "description": "Long-range optical camera monitoring northern outer perimeter fence and approach corridor",
+      "sourceReference": "/api/cameras/CAM-02/video",
+      "status": "active",
+      "capabilities": ["optical", "ir"],
+      "coverage": {
+        "sector": "Sector-North Bravo",
+        "latitude": 32.7161,
+        "longitude": -117.1614,
+        "azimuth": 175.0,
+        "fovDegrees": 70.0,
+        "blindSpotZones": []
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 25.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.95
+      }
+    },
+    {
+      "id": "CAM-03",
+      "name": "Restricted Sterile Zone — Fence Line",
+      "description": "High-security thermal and optical sensor monitoring sterile buffer zone Alpha-3",
+      "sourceReference": "/api/cameras/CAM-03/video",
+      "status": "standby",
+      "capabilities": ["optical", "thermal", "ir"],
+      "coverage": {
+        "sector": "Sector-East Sterile Zone",
+        "latitude": 32.7145,
+        "longitude": -117.158,
+        "azimuth": 90.0,
+        "fovDegrees": 60.0,
+        "blindSpotZones": ["culvert_drainage_e2"]
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 24.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.82
+      }
+    },
+    {
+      "id": "CAM-04",
+      "name": "Exit Lane & Southern Barrier",
+      "description": "Fixed optical camera monitoring vehicle checkpoint egress and south barrier",
+      "sourceReference": "/api/cameras/CAM-04/video",
+      "status": "active",
+      "capabilities": ["optical"],
+      "coverage": {
+        "sector": "Sector-South Egress",
+        "latitude": 32.7132,
+        "longitude": -117.1605,
+        "azimuth": 180.0,
+        "fovDegrees": 80.0,
+        "blindSpotZones": []
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 30.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.99
+      }
+    },
+    {
+      "id": "CAM-05",
+      "name": "East Perimeter Fence — Sector E4",
+      "description": "Thermal imaging camera along eastern boundary fence line with anti-tamper casing",
+      "sourceReference": "/api/cameras/CAM-05/video",
+      "status": "active",
+      "capabilities": ["thermal", "optical"],
+      "coverage": {
+        "sector": "Sector-East Perimeter",
+        "latitude": 32.715,
+        "longitude": -117.155,
+        "azimuth": 45.0,
+        "fovDegrees": 65.0,
+        "blindSpotZones": ["creek_bend"]
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 25.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.94
+      }
+    },
+    {
+      "id": "CAM-06",
+      "name": "Service Road & Maintenance Yard",
+      "description": "Auxiliary night-capable optical sensor monitoring utility corridor and service access gates",
+      "sourceReference": "/api/cameras/CAM-06/video",
+      "status": "active",
+      "capabilities": ["optical", "ir"],
+      "coverage": {
+        "sector": "Sector-West Logistics",
+        "latitude": 32.714,
+        "longitude": -117.165,
+        "azimuth": 270.0,
+        "fovDegrees": 75.0,
+        "blindSpotZones": []
+      },
+      "health": {
+        "isOnline": true,
+        "fps": 20.0,
+        "lastHeartbeat": "2026-09-26T16:00:00Z",
+        "signalQuality": 0.96
+      }
+    }
+  ]
+}

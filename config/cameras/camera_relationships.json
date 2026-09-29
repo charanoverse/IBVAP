@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "description": "IBVAP Phase 7 Cross-Camera Declarative Topology Graph & Travel-Time Windows",
+  "scoringWeights": {
+    "topologyMatch": 0.35,
+    "temporalMatch": 0.30,
+    "directionMatch": 0.15,
+    "eventTypeMatch": 0.20
+  },
+  "minScoreThreshold": 0.65,
+  "maxCandidatesPerEvent": 3,
+  "recentEventBufferSeconds": 60,
+  "relationships": [
+    {
+      "id": "REL-CAM01-CAM02",
+      "sourceCameraId": "CAM-01",
+      "targetCameraId": "CAM-02",
+      "relationshipType": "ENTRY_TO_CORRIDOR",
+      "minTravelTimeSeconds": 2,
+      "maxTravelTimeSeconds": 15,
+      "allowedDirections": ["A_TO_B", "FORWARD", "ANY"],
+      "compatibleEventTypes": ["LINE_CROSSING", "ZONE_ENTRY", "ZONE_EXIT"],
+      "description": "North Gate entry towards North Corridor approach line",
+      "enabled": true
+    },
+    {
+      "id": "REL-CAM02-CAM03",
+      "sourceCameraId": "CAM-02",
+      "targetCameraId": "CAM-03",
+      "relationshipType": "CORRIDOR_TO_STERILE_ZONE",
+      "minTravelTimeSeconds": 2,
+      "maxTravelTimeSeconds": 18,
+      "allowedDirections": ["FORWARD", "ANY"],
+      "compatibleEventTypes": ["ZONE_ENTRY", "ZONE_EXIT", "LINE_CROSSING", "DWELL"],
+      "description": "Approach from North Corridor fence into Sterile Buffer Zone Alpha-3",
+      "enabled": true
+    },
+    {
+      "id": "REL-CAM03-CAM04",
+      "sourceCameraId": "CAM-03",
+      "targetCameraId": "CAM-04",
+      "relationshipType": "STERILE_ZONE_TO_EXIT",
+      "minTravelTimeSeconds": 3,
+      "maxTravelTimeSeconds": 20,
+      "allowedDirections": ["ANY"],
+      "compatibleEventTypes": ["ZONE_EXIT", "ZONE_ENTRY", "LINE_CROSSING"],
+      "description": "Transit from Sterile Buffer Zone to South Egress Barrier",
+      "enabled": true
+    },
+    {
+      "id": "REL-CAM05-CAM03",
+      "sourceCameraId": "CAM-05",
+      "targetCameraId": "CAM-03",
+      "relationshipType": "PERIMETER_TO_STERILE_ZONE",
+      "minTravelTimeSeconds": 2,
+      "maxTravelTimeSeconds": 15,
+      "allowedDirections": ["ANY"],
+      "compatibleEventTypes": ["LINE_CROSSING", "ZONE_ENTRY", "ZONE_EXIT"],
+      "description": "Breach from East Perimeter fence Sector E4 to Sterile Zone",
+      "enabled": true
+    },
+    {
+      "id": "REL-CAM06-CAM04",
+      "sourceCameraId": "CAM-06",
+      "targetCameraId": "CAM-04",
+      "relationshipType": "SERVICE_TO_EXIT",
+      "minTravelTimeSeconds": 3,
+      "maxTravelTimeSeconds": 20,
+      "allowedDirections": ["ANY"],
+      "compatibleEventTypes": ["LINE_CROSSING", "ZONE_ENTRY", "ZONE_EXIT"],
+      "description": "West Logistics Yard utility road transit to South Egress",
+      "enabled": true
+    }
+  ]
+}

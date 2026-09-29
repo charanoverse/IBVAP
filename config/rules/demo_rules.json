@@ -1,0 +1,175 @@
+{
+  "version": "2.0",
+  "description": "IBVAP Phase 5 Declarative Security Rule Definitions",
+  "rules": [
+    {
+      "id": "RULE-CAM01-01",
+      "name": "North Gate Line Crossing",
+      "cameraId": "CAM-01",
+      "type": "LINE_CROSSING",
+      "lineId": "LINE-CAM01-GATE",
+      "classes": ["person", "car", "truck", "bus", "motorcycle"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 6.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects person or vehicle crossing the North Gate threshold line"
+    },
+    {
+      "id": "RULE-CAM01-02",
+      "name": "North Gate Wrong-Way Movement",
+      "cameraId": "CAM-01",
+      "type": "WRONG_DIRECTION",
+      "lineId": "LINE-CAM01-GATE",
+      "classes": ["person", "car", "truck"],
+      "enabled": true,
+      "conditions": {
+        "allowedDirection": "A_TO_B",
+        "cooldownSeconds": 10.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects unauthorized reverse direction crossing (B to A) across North Gate threshold"
+    },
+    {
+      "id": "RULE-CAM02-01",
+      "name": "North Corridor Line Crossing",
+      "cameraId": "CAM-02",
+      "type": "LINE_CROSSING",
+      "lineId": "LINE-CAM02-CORRIDOR",
+      "classes": ["person"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 5.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects pedestrian crossing across the North Corridor midpoint line"
+    },
+    {
+      "id": "RULE-CAM02-02",
+      "name": "North Corridor Repeated Crossing",
+      "cameraId": "CAM-02",
+      "type": "REPEATED_CROSSING",
+      "lineId": "LINE-CAM02-CORRIDOR",
+      "classes": ["person"],
+      "enabled": true,
+      "conditions": {
+        "repeatCount": 2,
+        "windowSeconds": 10.0,
+        "cooldownSeconds": 15.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects repeated back-and-forth crossing over corridor line within 10 seconds"
+    },
+    {
+      "id": "RULE-CAM03-01",
+      "name": "Sterile Zone Entry Breach",
+      "cameraId": "CAM-03",
+      "type": "ZONE_ENTRY",
+      "zoneId": "ZONE-CAM03-RESTRICTED",
+      "classes": ["person", "car", "truck", "motorcycle"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 10.0
+      },
+      "verification": {
+        "minimumFrames": 2,
+        "minimumSeconds": 0.4
+      },
+      "description": "Generates verified event when a target enters the Restricted Sterile Buffer Zone"
+    },
+    {
+      "id": "RULE-CAM03-02",
+      "name": "Sterile Zone Loitering / Dwell",
+      "cameraId": "CAM-03",
+      "type": "DWELL",
+      "zoneId": "ZONE-CAM03-RESTRICTED",
+      "classes": ["person", "car", "truck"],
+      "enabled": true,
+      "conditions": {
+        "minimumSeconds": 2.0,
+        "cooldownSeconds": 15.0
+      },
+      "verification": {
+        "minimumFrames": 3,
+        "minimumSeconds": 2.0
+      },
+      "description": "Generates verified dwell event when a target remains inside Sterile Zone for at least 2.0 seconds"
+    },
+    {
+      "id": "RULE-CAM04-01",
+      "name": "Southern Barrier Vehicle Crossing",
+      "cameraId": "CAM-04",
+      "type": "LINE_CROSSING",
+      "lineId": "LINE-CAM04-EXIT",
+      "classes": ["car", "truck", "bus"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 8.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects vehicle passing the Southern Barrier line"
+    },
+    {
+      "id": "RULE-CAM04-02",
+      "name": "Southern Egress Zone Exit",
+      "cameraId": "CAM-04",
+      "type": "ZONE_EXIT",
+      "zoneId": "ZONE-CAM04-EGRESS",
+      "classes": ["car", "truck", "bus"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 10.0
+      },
+      "verification": {
+        "minimumFrames": 2
+      },
+      "description": "Detects vehicle exiting the Southern Egress Lane zone"
+    },
+    {
+      "id": "RULE-CAM05-01",
+      "name": "East Perimeter Fence Breach",
+      "cameraId": "CAM-05",
+      "type": "ZONE_ENTRY",
+      "zoneId": "ZONE-CAM05-PERIMETER",
+      "classes": ["person", "car", "truck"],
+      "enabled": true,
+      "conditions": {
+        "cooldownSeconds": 10.0
+      },
+      "verification": {
+        "minimumFrames": 2,
+        "minimumSeconds": 0.4
+      },
+      "description": "Detects entry into East Fence Sterile Boundary"
+    },
+    {
+      "id": "RULE-CAM06-01",
+      "name": "Maintenance Yard Vehicle Dwell",
+      "cameraId": "CAM-06",
+      "type": "DWELL",
+      "zoneId": "ZONE-CAM06-SERVICE",
+      "classes": ["car", "truck", "bus", "person"],
+      "enabled": true,
+      "conditions": {
+        "minimumSeconds": 2.0,
+        "cooldownSeconds": 15.0
+      },
+      "verification": {
+        "minimumFrames": 3,
+        "minimumSeconds": 2.0
+      },
+      "description": "Detects dwell in utility yard exceeding 2.0 seconds"
+    }
+  ]
+}

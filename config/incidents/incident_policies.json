@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "description": "IBVAP Phase 6 Declarative Event-to-Incident Management & Aggregation Policy",
+  "policies": [
+    {
+      "eventType": "ZONE_ENTRY",
+      "ruleType": "ZONE_ENTRY",
+      "createIncident": true,
+      "defaultPriority": "HIGH",
+      "priorityReasonTemplate": "High priority: Sterile / Restricted zone entry breach detected by rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["DWELL", "ZONE_EXIT"],
+      "aggregationWindowSeconds": 15.0
+    },
+    {
+      "eventType": "DWELL",
+      "ruleType": "DWELL",
+      "createIncident": true,
+      "defaultPriority": "HIGH",
+      "priorityReasonTemplate": "High priority: Prolonged dwell / loitering detected in restricted area by rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["ZONE_ENTRY", "ZONE_EXIT"],
+      "aggregationWindowSeconds": 15.0
+    },
+    {
+      "eventType": "WRONG_DIRECTION",
+      "ruleType": "WRONG_DIRECTION",
+      "createIncident": true,
+      "defaultPriority": "HIGH",
+      "priorityReasonTemplate": "High priority: Unauthorized reverse-direction movement across perimeter line detected by rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["LINE_CROSSING"],
+      "aggregationWindowSeconds": 15.0
+    },
+    {
+      "eventType": "LINE_CROSSING",
+      "ruleType": "LINE_CROSSING",
+      "createIncident": true,
+      "defaultPriority": "MEDIUM",
+      "priorityReasonTemplate": "Medium priority: Monitored security line crossing detected by rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["REPEATED_CROSSING", "WRONG_DIRECTION"],
+      "aggregationWindowSeconds": 15.0
+    },
+    {
+      "eventType": "REPEATED_CROSSING",
+      "ruleType": "REPEATED_CROSSING",
+      "createIncident": true,
+      "defaultPriority": "MEDIUM",
+      "priorityReasonTemplate": "Medium priority: Repeated oscillating crossings detected across boundary by rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["LINE_CROSSING"],
+      "aggregationWindowSeconds": 15.0
+    },
+    {
+      "eventType": "ZONE_EXIT",
+      "ruleType": "ZONE_EXIT",
+      "createIncident": false,
+      "defaultPriority": "LOW",
+      "priorityReasonTemplate": "Low priority: Target exited monitored area per rule \"{ruleName}\" on camera {cameraId}.",
+      "aggregateWith": ["ZONE_ENTRY"],
+      "aggregationWindowSeconds": 15.0
+    }
+  ],
+  "defaultPolicy": {
+    "createIncident": true,
+    "defaultPriority": "MEDIUM",
+    "priorityReasonTemplate": "Security rule \"{ruleName}\" verified on camera {cameraId}."
+  },
+  "evidence": {
+    "preSeconds": 10.0,
+    "postSeconds": 10.0,
+    "minEventDurationSeconds": 4.0,
+    "maxConcurrency": 2
+  }
+}

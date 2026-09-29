@@ -1,0 +1,102 @@
+{
+  "version": "2.0",
+  "description": "IBVAP Phase 5 Configurable Virtual Zones for Camera Feeds",
+  "zones": [
+    {
+      "id": "ZONE-CAM01-GATEWAY",
+      "cameraId": "CAM-01",
+      "name": "North Gate Perimeter Zone",
+      "type": "MONITORED",
+      "polygon": [
+        [0.08, 0.30],
+        [0.92, 0.30],
+        [0.95, 0.92],
+        [0.05, 0.92]
+      ],
+      "color": "#3b82f6",
+      "severity": "medium",
+      "description": "Monitored gate checkpoint apron",
+      "enabled": true
+    },
+    {
+      "id": "ZONE-CAM02-APPROACH",
+      "cameraId": "CAM-02",
+      "name": "North Approach Corridor",
+      "type": "MONITORED",
+      "polygon": [
+        [0.05, 0.25],
+        [0.95, 0.25],
+        [0.95, 0.95],
+        [0.05, 0.95]
+      ],
+      "color": "#eab308",
+      "severity": "medium",
+      "description": "Active corridor for pedestrian and patrol surveillance",
+      "enabled": true
+    },
+    {
+      "id": "ZONE-CAM03-RESTRICTED",
+      "cameraId": "CAM-03",
+      "name": "Restricted Sterile Buffer Zone",
+      "type": "RESTRICTED",
+      "polygon": [
+        [0.10, 0.20],
+        [0.90, 0.20],
+        [0.95, 0.95],
+        [0.05, 0.95]
+      ],
+      "color": "#ef4444",
+      "severity": "critical",
+      "description": "Zero-tolerance sterile buffer zone along eastern fence perimeter",
+      "enabled": true
+    },
+    {
+      "id": "ZONE-CAM04-EGRESS",
+      "cameraId": "CAM-04",
+      "name": "Southern Egress Lane",
+      "type": "EXIT",
+      "polygon": [
+        [0.10, 0.35],
+        [0.90, 0.35],
+        [0.95, 0.95],
+        [0.05, 0.95]
+      ],
+      "color": "#10b981",
+      "severity": "low",
+      "description": "Authorized vehicle egress and exit zone",
+      "enabled": true
+    },
+    {
+      "id": "ZONE-CAM05-PERIMETER",
+      "cameraId": "CAM-05",
+      "name": "East Fence Sterile Boundary",
+      "type": "RESTRICTED",
+      "polygon": [
+        [0.12, 0.22],
+        [0.88, 0.22],
+        [0.95, 0.92],
+        [0.05, 0.92]
+      ],
+      "color": "#ef4444",
+      "severity": "critical",
+      "description": "High-risk perimeter fence buffer zone",
+      "enabled": true
+    },
+    {
+      "id": "ZONE-CAM06-SERVICE",
+      "cameraId": "CAM-06",
+      "name": "Service Road & Utility Yard",
+      "type": "MONITORED",
+      "polygon": [
+        [0.08, 0.20],
+        [0.92, 0.20],
+        [0.95, 0.95],
+        [0.05, 0.95]
+      ],
+      "color": "#8b5cf6",
+      "severity": "medium",
+      "description": "Night surveillance zone covering logistics yard",
+      "enabled": true
+    }
+  ]
+}

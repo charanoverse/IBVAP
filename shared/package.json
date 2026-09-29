@@ -1,0 +1,13 @@
+{
+  "name": "@ibvap/shared",
+  "version": "0.1.0",
+  "description": "Shared domain models, contracts, and interfaces for IBVAP",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  }
+}

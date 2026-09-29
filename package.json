@@ -1,0 +1,28 @@
+{
+  "name": "ibvap",
+  "version": "0.1.0",
+  "description": "Intelligent Border Video Analytics Platform (IBVAP) - Phase 0 Foundation",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=backend & npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "db:init": "npm run db:init --workspace=backend",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "keywords": [
+    "ibvap",
+    "video-analytics",
+    "border-security",
+    "phase-0"
+  ],
+  "author": "IBVAP Team",
+  "license": "UNLICENSED"
+}

@@ -30,8 +30,7 @@ build/
 *.db-shm
 
 # Storage & Media data (preserve directory structure via .gitkeep)
-data/videos/*
-!data/videos/.gitkeep
+# CCTV camera video recordings in data/videos are tracked
 data/snapshots/*
 !data/snapshots/.gitkeep
 data/evidence/*
